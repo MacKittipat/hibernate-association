@@ -17,11 +17,12 @@ public class App {
         entityManager.getTransaction().begin();
 
         Phone phone = new Phone("123");
-        entityManager.persist(phone);
 
         PhoneDetail phoneDetail = new PhoneDetail("provider", "technology");
         phoneDetail.setPhone(phone);
-        entityManager.persist(phoneDetail);
+
+        phone.setPhoneDetail(phoneDetail);
+        entityManager.persist(phone);
 
         entityManager.getTransaction().commit();
 
